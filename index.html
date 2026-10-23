@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8">
+<title>Do Silêncio ao Registro</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="DEAMs, plantão 24h e o registro da violência doméstica contra a mulher nos municípios de Pernambuco, 2015-2025.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;600&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#inicio">Do Silêncio ao Registro</a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#panorama">Panorama</a>
+      <a href="#mapa">Mapa</a>
+      <a href="#deams">DEAMs</a>
+      <a href="#desenho">Desenho</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#mecanismos">Mecanismos</a>
+      <a href="#hipoteses">Hipóteses</a>
+      <a href="#fontes">Fontes</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="wrap">
+      <p class="eyebrow">Pernambuco · 185 municípios · 2015–2025</p>
+      <h1>Quando o Estado chega, a violência <em>aparece</em> no registro</h1>
+      <p class="lead">Este painel apresenta os resultados de uma pesquisa sobre o efeito das Delegacias Especializadas de Atendimento à Mulher (DEAMs) e do plantão 24 horas sobre o registro de violência doméstica e familiar contra a mulher. A pergunta: ampliar a presença especializada do Estado aumenta a capacidade de tornar essa violência visível?</p>
+      <p class="autoria">Por <strong>Ana Carolina G. M. Farias</strong> · Programa de Pós-Graduação em Ciência Política, UFPE · resultados preliminares</p>
+      <div class="kpis" id="kpis" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="bloco" id="panorama">
+    <div class="wrap">
+      <div class="cab">
+        <p class="eyebrow">Panorama</p>
+        <h2>Os registros crescem no estado inteiro</h2>
+        <p>Vítimas mulheres em boletins de ocorrência de violência doméstica e familiar, por mês do fato. A alta é geral, por isso a análise compara cada município com ele mesmo e com municípios parecidos, e não com o próprio passado do estado.</p>
+      </div>
+      <div class="painel">
+        <div class="controles">
+          <div class="alternador" role="group" aria-label="Série exibida">
+            <button type="button" id="serie-total" aria-pressed="true">Total do estado</button>
+            <button type="button" id="serie-grupos" aria-pressed="false">Com e sem DEAM</button>
+          </div>
+        </div>
+        <div class="grafico" id="g-serie" role="img" aria-label="Série mensal de vítimas em BOs de violência doméstica em Pernambuco"></div>
+        <div class="legenda" id="leg-serie"></div>
+        <p class="fonte">Fonte: SDS-PE, REL 491 (resposta à LAI). Marcas no topo: leis, pandemia e mudanças nas DEAMs. Passe o cursor para ver os valores.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco" id="mapa">
+    <div class="wrap">
+      <div class="cab">
+        <p class="eyebrow">Mapa</p>
+        <h2>Onde a violência chega ao registro</h2>
+        <p>Taxa de vítimas em BOs por 10 mil mulheres de 18 anos ou mais. Clique em um município para ver a série e a situação da DEAM.</p>
+      </div>
+      <div class="grade-mapa">
+        <div class="painel">
+          <div class="controles">
+            <label class="campo" for="ano">Ano <input type="range" id="ano" min="2015" max="2025" step="1" value="2025"><span class="ano-atual" id="ano-txt">2025</span></label>
+            <label class="campo" for="busca">Município <input type="search" id="busca" list="lista-mun" placeholder="Buscar município"></label>
+            <datalist id="lista-mun"></datalist>
+          </div>
+          <div class="grafico" id="g-mapa" role="img" aria-label="Mapa dos municípios de Pernambuco pela taxa de registros"></div>
+          <div class="legenda" id="leg-mapa"></div>
+          <p class="fonte">Malha municipal: IBGE. Fernando de Noronha fica fora do mapa por escala, mas aparece na busca. População: Censo 2022.</p>
+        </div>
+        <aside class="painel ficha" id="ficha" aria-live="polite"></aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco" id="deams">
+    <div class="wrap">
+      <div class="cab">
+        <p class="eyebrow">DEAMs</p>
+        <h2>Dezessete criadas por lei, quinze instaladas</h2>
+        <p>Datas de instalação e de início do plantão 24 horas informadas pela SDS-PE em resposta à Lei de Acesso à Informação. A faixa sombreada marca o período analisado.</p>
+      </div>
+      <div class="painel">
+        <div class="grafico" id="g-deams" role="img" aria-label="Linha do tempo de instalação das DEAMs e do plantão 24 horas"></div>
+        <div class="legenda" id="leg-deams"></div>
+        <p class="fonte">Fonte: SDS-PE, resposta à LAI. Ipojuca e Ouricuri foram criadas pela Lei estadual 13.457/2008 e nunca instaladas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco" id="desenho">
+    <div class="wrap">
+      <div class="cab">
+        <p class="eyebrow">Desenho de pesquisa</p>
+        <h2>Dois experimentos naturais</h2>
+        <p>O volume de BOs mistura a violência que acontece e a capacidade do Estado de registrá-la. Para isolar a segunda, a pesquisa usa duas mudanças institucionais datadas e compara cada município tratado com municípios que não passaram por ela.</p>
+      </div>
+      <div class="desenhos" id="desenhos"></div>
+      <div class="formula">log E[BO<sub>it</sub>] = α<sub>i</sub> + λ<sub>t</sub> + Σ<sub>g</sub> β<sub>g</sub> · 1[coorte = g, pós]<sub>it</sub>&nbsp;&nbsp;&nbsp;Poisson, efeitos fixos de município e trimestre (Wooldridge, 2023)</div>
+      <p class="fonte">Trimestre de transição excluído para o tratado. Inferência principal por aleatorização: com 5 tratados, erros-padrão agrupados são pouco confiáveis.</p>
+    </div>
+  </section>
+
+  <section class="bloco" id="resultados">
+    <div class="wrap">
+      <div class="cab">
+        <p class="eyebrow">Resultados</p>
+        <h2>Mais registros depois da DEAM e do plantão</h2>
+        <p>Efeito médio nos trimestres seguintes à intervenção, frente ao que se esperaria sem ela.</p>
+      </div>
+      <div class="efeitos" id="efeitos"></div>
+
+      <div class="grade-2">
+        <div class="painel">
+          <h3>Instalação da DEAM, trimestre a trimestre</h3>
+          <div class="grafico" id="g-es-a" role="img" aria-label="Event study da instalação da DEAM"></div>
+          <p class="fonte">Sun e Abraham (2021), referência no trimestre anterior. IC 95%.</p>
+        </div>
+        <div class="painel">
+          <h3>Plantão 24h, trimestre a trimestre</h3>
+          <div class="grafico" id="g-es-b" role="img" aria-label="Event study do plantão 24 horas"></div>
+          <p class="fonte">Sun e Abraham (2021), referência no trimestre anterior. IC 95%.</p>
+        </div>
+      </div>
+
+      <div class="grade-2" style="margin-top:20px">
+        <div class="painel">
+          <h3>O resultado resiste a outras escolhas?</h3>
+          <div class="grafico" id="g-robustez" role="img" aria-label="Efeito estimado em diferentes especificações"></div>
+          <p class="fonte">Cada linha é uma especificação. IC 95% com erros agrupados por município.</p>
+        </div>
+        <div class="painel">
+          <h3>Quanto o acaso explicaria?</h3>
+          <div class="controles">
+            <div class="alternador" role="group" aria-label="Desenho">
+              <button type="button" id="ri-a" aria-pressed="true">Instalação</button>
+              <button type="button" id="ri-b" aria-pressed="false">Plantão 24h</button>
+            </div>
+          </div>
+          <div class="grafico" id="g-ri" role="img" aria-label="Distribuição dos efeitos sob atribuições aleatórias do tratamento"></div>
+          <p class="fonte" id="ri-nota"></p>
+        </div>
+      </div>
+
+      <div class="painel" style="margin-top:20px">
+        <h3>O efeito não é igual entre os municípios</h3>
+        <div class="grafico" id="g-coortes" role="img" aria-label="Efeito por grupo de municípios tratados"></div>
+        <p class="fonte" id="coortes-nota"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco" id="mecanismos">
+    <div class="wrap">
+      <div class="cab">
+        <p class="eyebrow">Mecanismos</p>
+        <h2>Que crimes passam a ser registrados?</h2>
+        <p>Se o efeito vem do acesso, deveria ser maior em crimes que dependem da iniciativa da vítima e da escuta especializada. Marcadores vazios indicam naturezas que falham no teste de pré-tendência.</p>
+      </div>
+      <div class="painel">
+        <div class="controles">
+          <div class="alternador" role="group" aria-label="Desenho">
+            <button type="button" id="nat-a" aria-pressed="true">Instalação</button>
+            <button type="button" id="nat-b" aria-pressed="false">Plantão 24h</button>
+          </div>
+        </div>
+        <div class="grafico" id="g-naturezas" role="img" aria-label="Efeito por natureza do crime"></div>
+        <p class="fonte">11 testes por desenho: leia com correção para múltiplos testes. Naturezas com separação estatística ficam de fora.</p>
+      </div>
+
+      <div class="grade-2" style="margin-top:20px">
+        <div class="painel">
+          <h3>Registro ou violência? As âncoras</h3>
+          <p class="fonte" style="margin-top:4px">Feminicídio e notificações de saúde dependem menos do acesso à delegacia. Efeito nos BOs sem efeito nelas indicaria efeito de registro.</p>
+          <div class="tabela" id="t-ancoras"></div>
+        </div>
+        <div class="painel">
+          <h3>Composição e qualidade do registro</h3>
+          <p class="fonte" style="margin-top:4px">Variação em pontos percentuais.</p>
+          <div class="tabela" id="t-composicao"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco" id="hipoteses">
+    <div class="wrap">
+      <div class="cab">
+        <p class="eyebrow">Hipóteses</p>
+        <h2>O que os dados sustentam</h2>
+      </div>
+      <div class="tabela">
+        <table>
+          <thead><tr><th>Hipótese</th><th>Enunciado</th><th>Resultado</th><th>Evidência</th></tr></thead>
+          <tbody id="t-hipoteses"></tbody>
+        </table>
+      </div>
+      <div class="limites" style="margin-top:32px">
+        <div><h3>Poucos tratados</h3><p>Cinco municípios ganharam DEAM no período e quatro deles em 2022. A inferência por aleatorização é a referência, e o efeito depende muito de Afogados da Ingazeira.</p></div>
+        <div><h3>Município do fato</h3><p>O BO identifica onde o fato ocorreu, não a delegacia que registrou. O resultado é "mais registro em cidades com DEAM", e não "registro feito pela DEAM".</p></div>
+        <div><h3>Âncoras frágeis</h3><p>O feminicídio é raro demais por município e mudou de classificação em 2015 e 2024. Homicídios de mulheres em geral seriam uma âncora mais estável.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco" id="fontes">
+    <div class="wrap">
+      <div class="cab">
+        <p class="eyebrow">Fontes</p>
+        <h2>Dados e como citar</h2>
+      </div>
+      <div class="grade-2">
+        <div>
+          <h3>Dados</h3>
+          <ul>
+            <li>Boletins de ocorrência de violência doméstica e familiar contra a mulher, 2015–2025: SDS-PE, REL 491, via LAI</li>
+            <li>Datas de instalação das DEAMs e do plantão 24h: SDS-PE, via LAI</li>
+            <li>Feminicídio consumado e tentado: SDS-PE</li>
+            <li>Notificações de violência: SINAN, Ministério da Saúde</li>
+            <li>Índice de Comprometimento Municipal de Proteção às Mulheres: TCE-PE</li>
+            <li>População feminina (Censo 2022) e malha municipal: IBGE</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Como citar</h3>
+          <p class="citar">FARIAS, A. C. G. M. Do silêncio ao registro: DEAMs e capacidade estatal de registro da violência doméstica em Pernambuco. Artigo em elaboração. Programa de Pós-Graduação em Ciência Política, UFPE, 2026.</p>
+          <p class="fonte">Título provisório. Resultados preliminares, sujeitos a revisão.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap" id="rodape">Do Silêncio ao Registro · dados atualizados em <span id="gerado"></span></div>
+</footer>
+
+<div class="dica" id="dica" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
