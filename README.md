@@ -31,8 +31,4 @@ Diferenças-em-diferenças com adoção escalonada: Poisson (PPML) com uma dummy
 - `index.html`, `styles.css`, `app.js`: o painel (gráficos em D3)
 - `dados.json`: dados agregados por município e resultados dos modelos, gerados pelo script `exportar_dashboard.R`
 
-## Como citar
-
-FARIAS, A. C. G. M. Do silêncio ao registro: DEAMs e capacidade estatal de registro da violência doméstica em Pernambuco. Artigo em elaboração. Programa de Pós-Graduação em Ciência Política, UFPE, 2026.
-
 Resultados preliminares, sujeitos a revisão.
